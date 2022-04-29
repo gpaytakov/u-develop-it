@@ -1,4 +1,5 @@
 const express = require('express');
+/* below code is combination of const app = express() and app.Route() */ 
 const router = express.Router();
 const db = require('../../db/connection');
 const inputCheck = require('../../utils/inputCheck');
@@ -110,7 +111,9 @@ router.get('/candidates', (req, res) => {
     });
   });
   
+  
   // Delete a candidate
+  //originally app.delet('api/candidate/:id')
   router.delete('/candidate/:id', (req, res) => {
     const sql = `DELETE FROM candidates WHERE id = ?`;
     const params = [req.params.id];
